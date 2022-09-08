@@ -23,27 +23,23 @@ average =0
 
 
 #loop through one month at a time
-#while month < 13:
-for line in csvfile:
-    if int(line[0]) == prev: #change to while when it works
-        count += 1
-        total += int(line[1])
-        print(count)
-        print(total)
-    else:
-        prev = line[0]
+while month < 12:
+    for line in csvfile:
+        if int(line[0]) == prev: #change to while when it works
+            count += 1
+            total += int(line[1])
 
-        # if line[0] != prev:
-        #     average = total/count
-        #     print(average)
-        #     outfile.write(months[month])
-        #     outfile.write(': ')
-        #     outfile.write(str(average))
-        #     outfile.write('\n')
-        #     total = 0
-        #     average = 0
+        else:
+            average = total/count
+            outfile.write(months[month])
+            outfile.write(': ')
+            outfile.write(str(average))
+            outfile.write('\n')
+            total = 0
+            average = 0
+            month+=1
+            prev = line[0]
 
-        #     month+=1
 
 
         # prev = line[0]
